@@ -17,7 +17,6 @@ export const Online_medical = () => {
         !searchDoctorLoad ? postRequest('https://localhost:7136/Home/GetHistory', '').then(
             response => {
                 if (response.ok) {
-                    console.log('okk')
                     response.json().then(res => {
                         setSearchDoctorLoad(!searchDoctorLoad)
                         setDoctorsList(res)
