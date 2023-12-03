@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {MyRoute} from '../src/Components/Interfaces/MyRoute'
+import {MyRoute} from '../src/Interfaces/MyRoute'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

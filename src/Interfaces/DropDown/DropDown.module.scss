@@ -1,0 +1,31 @@
+.dropdown_container {
+    position: relative;
+    display: flex;
+
+    &__list{
+        position: relative;
+        display: inline-block;
+
+        button {
+            text-align: left;
+            width: 100%;
+            &::after {
+                content: '\21D3';
+                float: right;
+            }
+        }
+
+        .btn_lock {
+            background-color: #a6a6a6;
+            &::after {
+                content: none;
+            }
+            &:active{
+                background-color: #8f8f8f;
+            }
+        }
+    }
+}
+
+
+    

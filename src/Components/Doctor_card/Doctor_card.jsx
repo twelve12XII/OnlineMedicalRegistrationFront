@@ -1,4 +1,4 @@
-export const DoctorCard = ({ doctor }) => {
+export const Doctor_card = ({ doctor }) => {
 
     return (
         <>

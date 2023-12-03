@@ -10,7 +10,7 @@ export const postRequestWithFile = async (url, object) => {
     return await fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'multipart/form-data; boundary=something',
+            'Content-Type': 'multipart/form-data; boundary=something; application/json',
             // ...(auth !== null && auth !== false && ({
             //     Authorization: 'Basic ' + auth
             // }))
@@ -32,7 +32,7 @@ export const postRequest = async (url, object) => {
     return await fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json;charset=utf-8',
+            'Content-Type': 'application/json; charset=utf-8',
             // ...(auth !== null && auth !== false && ({
             //     Authorization: 'Basic ' + auth
             // }))
