@@ -12,6 +12,7 @@ export const Login = () => {
     const [error, setError] = useState('')
 
     const handleLogin = () => {
+        setError('')
         console.log(
             {
                 "policy": `${policy}`,

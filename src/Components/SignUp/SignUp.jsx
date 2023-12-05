@@ -15,6 +15,7 @@ export const SignUp = () => {
     let navigate = useNavigate();
 
     const handleVerificate = () => {
+        setError('')
         postRequest('https://fd97-93-188-41-71.ngrok-free.app/verify',
             {
                 "passport": `${passport}`,
