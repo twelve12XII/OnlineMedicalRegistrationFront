@@ -21,6 +21,8 @@ export const Modal = ({
     return () => document.removeEventListener('keydown', onKeydown)
   })
 
+  
+
   if (!visible) return null
   return (
     <div className={style.modal} onClick={onClose}>
