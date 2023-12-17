@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { DropDown } from '../../Interfaces/DropDown/DropDown'
-import { postRequestEgor } from '../../Interfaces/api/constants'
+import { postRequestEgor, postRequestOleg } from '../../Interfaces/api/constants'
 import { Pagination } from '../../Interfaces/Pagination/Pagination'
 import { Modal } from '../../Interfaces/Modal/Modal'
 
@@ -16,14 +16,14 @@ export const History_visits = ({ data, specList, orgList, userId, pageCount, set
     const onClose = () => setModal(false)
     const [doctorName, setDoctorName] = useState()
     const [id, setId] = useState()
-    const handleOpenModal = e => {
-        setId(e.target.id)
+    const handleOpenModal = (time, id, name) => {
+        setTime(time)
+        setId(id)
         setModal(true)
-        setDoctorName(e.target.name)
+        setDoctorName(name)
     }
 
-    const handleCancel = e => {
-        console.log(id)
+    const handleCancel = () => {
         postRequestEgor('CancelRecord',
             {
                 "recordId": id
@@ -35,6 +35,19 @@ export const History_visits = ({ data, specList, orgList, userId, pageCount, set
                         console.log("exception " + response.status);
                     }
                 })
+        postRequestOleg('verify_cancel',
+            {
+                "time": time
+            }).then(
+                response => {
+                    if (response.ok) {
+                        console.log(response.status)
+                    } else {
+                        console.log("exception " + response.status);
+                    }
+                })
+        onClose()
+
     }
     const handleSearch = (pageIndex) => {
         console.log({
@@ -105,7 +118,7 @@ export const History_visits = ({ data, specList, orgList, userId, pageCount, set
                                 <th>{visit.spezialization.toUpperCase()}</th>
                                 <th>{visit.dateTime}</th>
                                 <th>{visit.status.toUpperCase()}</th>
-                                {visit.status == 'предстоит' && <th><button onClick={handleOpenModal} id={visit.recordId} name={visit.fio}>Отменить запись</button></th>}
+                                {visit.status == 'предстоит' && <th><button onClick={() => handleOpenModal(visit.dateTime, visit.recordId, visit.fio)} id={visit.recordId} name={visit.fio}>Отменить запись</button></th>}
                             </tr>
                         ))}
                         <Modal
@@ -113,7 +126,7 @@ export const History_visits = ({ data, specList, orgList, userId, pageCount, set
                             title={`Отменить запись к ${doctorName}`}
                             content={
                                 <>
-                                    Ко времени
+                                    Ко времени {time}
                                 </>
                             }
                             footer={<button type="button" onClick={handleCancel}>Отменить</button>}

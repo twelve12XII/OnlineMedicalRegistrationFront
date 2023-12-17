@@ -5,14 +5,14 @@ import { Modal } from '../../Interfaces/Modal/Modal'
 export const Doctor_card = ({ doctorId, doctor, userId }) => {
     const [time, setTime] = useState()
     const [isModal, setModal] = useState(false)
+    const [id, setId] = useState()
     const onClose = () => setModal(false)
     const handleOpenModal = e => {
-        const id = e.target.id
-        setTime(document.getElementById(id).innerHTML)
+        setId(e.target.id)
+        setTime(document.getElementById(e.target.id).innerHTML)
         setModal(true)
     }
-    const handleRecord = e => {
-        const id = e.target.id
+    const handleRecord = () => {
         setModal(false)
         console.log(doctor)
         console.log("doctorId" + doctorId,
@@ -47,10 +47,7 @@ export const Doctor_card = ({ doctorId, doctor, userId }) => {
             }).then(
                 response => {
                     if (response.ok) {
-                        response.json().then(res => {
-                            console.log(res)
-
-                        })
+                        console.log(response.status)
                     } else {
                         console.log("exception " + response.status);
                     }

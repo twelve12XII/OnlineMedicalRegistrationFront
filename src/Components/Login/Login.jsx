@@ -30,7 +30,8 @@ export const Login = () => {
                     response.json().then(res => {
                         console.log(res)
                         navigate(
-                            '/online-medical'
+                            '/online-medical',
+                            { state: { policy } }
                         )
                     })
                 } else {
