@@ -1,31 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Pagination = ({
     gotoPage,
-    previousPage,
-    nextPage,
-    canPreviousPage,
-    canNextPage,
     pageCount,
     pageIndex,
-    pageSize,
-    setPageSize
+    canNextPage,
+    canPreviousPage,
+    setPageIndex
 }) => {
+
     // метод перехода к первой странице
-    const gotoFirstPage = () => gotoPage(0)
+    const gotoFirstPage = () => { gotoPage(0), setPageIndex(0) }
     // метод перехода к последней странице
-    const gotoLastPage = () => gotoPage(pageCount - 1)
-    // метод перехода к указанной странице
-    const gotoPage = (e) => {
-        // индекс массива
-        const page = e.target.value ? e.target.value - 1 : 0
-        gotoPage(page)
-    }
+    const gotoLastPage = () => { gotoPage(pageCount - 1), setPageIndex(pageCount - 1) }
+
+    const previousPage = () => { gotoPage(pageIndex - 1), setPageIndex(pageIndex - 1) }
+
+    const nextPage = () => { gotoPage(pageIndex + 1), setPageIndex(pageIndex + 1) }
     // метод установки размера страницы
-    const setPageSize = (e) => {
-        const size = e.target.value
-        setPageSize(size)
-    }
+    // const setPageSize = (e) => {
+    //     const size = e.target.value
+    //     setPageSize(size)
+    // }
 
     return (
         <div

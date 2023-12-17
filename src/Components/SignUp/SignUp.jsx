@@ -4,7 +4,7 @@ import { Modal } from '../../Interfaces/Modal/Modal'
 import norm_style from "../normalize.module.scss"
 import logo from '../../../public/logo.png'
 import pic from './assets/pic.png'
-import { postRequest } from "../../Interfaces/api/constants";
+import { postRequestOleg } from "../../Interfaces/api/constants";
 
 export const SignUp = () => {
     const [passport, setPassport] = useState()
@@ -16,7 +16,7 @@ export const SignUp = () => {
 
     const handleVerificate = () => {
         setError('')
-        postRequest('https://fd97-93-188-41-71.ngrok-free.app/verify',
+        postRequestOleg('verify',
             {
                 "passport": `${passport}`,
                 "policy": `${policy}`
@@ -44,7 +44,7 @@ export const SignUp = () => {
                 "password": `${password}`
             }
         )
-        postRequest('https://fd97-93-188-41-71.ngrok-free.app/sign_up',
+        postRequestOleg('sign_up',
             {
                 "password": `${password}`,
                 "policy": `${policy}`
@@ -56,7 +56,8 @@ export const SignUp = () => {
                         console.log(res)
                         onClose()
                         navigate(
-                            '/online-medical'
+                            '/online-medical',
+                            { state: { policy } }
                         )
                     })
                 } else {

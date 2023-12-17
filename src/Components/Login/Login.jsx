@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import norm_style from "../normalize.module.scss"
 import logo from '../../../public/logo.png'
 import pic from './assets/pic.png'
-import { postRequest } from "../../Interfaces/api/constants";
+import { postRequestOleg } from "../../Interfaces/api/constants";
 import { useState } from "react";
 
 export const Login = () => {
@@ -19,7 +19,7 @@ export const Login = () => {
                 "password": `${password}`
             }
         )
-        postRequest('https://fd97-93-188-41-71.ngrok-free.app/sign_in',
+        postRequestOleg('sign_in',
             {
                 "policy": `${policy}`,
                 "password": `${password}`

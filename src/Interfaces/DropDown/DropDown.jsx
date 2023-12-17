@@ -39,7 +39,7 @@ export const DropDown = ({
                     dropDownState.open && (items.map((item) => (
                         item !== dropDownItem &&
                         <button type="button" className={styles.btn_lock} onClick={handleDropdownClick}>
-                            {item}
+                            {item.toUpperCase()}
                         </button>
 
                     ))

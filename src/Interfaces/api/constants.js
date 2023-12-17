@@ -1,4 +1,3 @@
-
 export const postRequestWithFile = async (url, object) => {
     // if(auth){
     //     auth = getAuthHeader();
@@ -25,11 +24,32 @@ export const postRequestWithFile = async (url, object) => {
     })
 }
 
-export const postRequest = async (url, object) => {
+export const postRequestEgor = async (url, object) => {
     // if(auth){
     //     auth = getAuthHeader();
     // }
-    return await fetch(url, {
+    return await fetch('https://675e-46-138-0-220.ngrok-free.app/Home/' + url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            // ...(auth !== null && auth !== false && ({
+            //     Authorization: 'Basic ' + auth
+            // }))
+        },
+        ...(object !== null && ({
+            body: JSON.stringify(object)
+        }))
+    }).catch(e => {
+        console.log(e)
+        throw e
+    })
+}
+
+export const postRequestOleg = async (url, object) => {
+    // if(auth){
+    //     auth = getAuthHeader();
+    // }
+    return await fetch('https://23fa-93-188-41-71.ngrok-free.app/' + url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
