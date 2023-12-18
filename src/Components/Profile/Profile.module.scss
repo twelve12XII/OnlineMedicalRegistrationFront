@@ -1,0 +1,52 @@
+main {
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh;
+}
+
+.policy_block {
+    display:flex;
+    color: white;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.policy_block p {
+    margin: 0;
+}
+
+.policy_block label {
+    margin-right: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(63, 63, 63, 0.8);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.profile_buttons_block {    
+    height: 140px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.profile_buttons_block button {
+    width: 20vw;
+    min-width: 200px;
+    margin: 0;
+}
+
+.space_between {
+    justify-content: space-between;
+}

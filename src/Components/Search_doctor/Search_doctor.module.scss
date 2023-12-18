@@ -1,0 +1,94 @@
+.table_header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #3f3f3f;
+    margin-bottom: 2vh;
+}
+
+.table_header p{
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.table_header_item {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto;
+}
+
+.table_header_item button {
+margin: 0;
+}
+
+.header_fio {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_fio label {
+    margin-bottom: 10px;
+}
+
+.search_button {
+    width: 100%;
+}
+
+table {
+    display: block;
+    width: 100%;
+}
+
+tbody {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 2vh;
+    font-size: 14px;
+    min-height: 60vh;
+    background-color: #3f3f3f;
+}
+
+tbody tr {
+    background-color: #3f3f3f;
+}
+
+.doctor_list_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.doctor_list_item th {
+    padding: 15px;
+    flex: 1;
+}
+
+.record_button {
+    width: 10vw;
+}
+
+.search_doctor {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh;
+    word-break: break-all;
+}
+
+.search_doctor button {
+    margin: 0;
+}
+
+.fio_item input {
+    height: 40px;
+    font-size: 15px;
+    margin-top: 15px;
+}

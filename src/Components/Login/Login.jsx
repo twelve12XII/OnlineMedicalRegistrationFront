@@ -2,16 +2,49 @@ import { Link, useNavigate } from "react-router-dom";
 import norm_style from "../normalize.module.scss"
 import logo from '../../../public/logo.png'
 import pic from './assets/pic.png'
+import { postRequestOleg } from "../../Interfaces/api/constants";
+import { useState } from "react";
 import logo_light from '../../../public/logo_light.png'
 import background from '../../../public/background_1.png'
 
 export const Login = () => {
     let navigate = useNavigate();
+    const [password, setPassword] = useState()
+    const [policy, setPolicy] = useState()
+    const [error, setError] = useState('')
+
     const handleLogin = () => {
-        navigate(
-            '/online-medical'
+        setError('')
+        console.log(
+            {
+                "policy": `${policy}`,
+                "password": `${password}`
+            }
         )
+        postRequestOleg('sign_in',
+            {
+                "policy": `${policy}`,
+                "password": `${password}`
+            }
+        ).then(
+            response => {
+                if (response.ok) {
+                    response.json().then(res => {
+                        console.log(res)
+                        navigate(
+                            '/online-medical',
+                            { state: { policy } }
+                        )
+                    })
+                } else {
+                    response.json().then(res => {
+                        console.log(res.message)
+                        setError(res.message)
+                    })
+                }
+            })
     }
+
     return (
         <div className={norm_style.container}>
             <div className={norm_style.container_data}>
@@ -19,15 +52,16 @@ export const Login = () => {
                 <div className={norm_style.container_blank}>
                     <form action="url">
                         <label>Номер полиса</label>
-                        <input id={norm_style.first} type="text"/>
+                        <input id={norm_style.first} type="text" onInput={e => setPolicy(e.target.value)}/>
                         <label>Пароль</label>
-                        <input type="password" />
+                        <input type="password" onInput={e => setPassword(e.target.value)}/>
                     </form>
                     <div className={norm_style.container_blank__links}>
                         <Link to="/registration">Зарегистрироваться</Link>
                         <Link>Забыли пароль?</Link>
                     </div>
                     <button type="button" onClick={handleLogin}>Войти</button>
+                    {error != '' && <p>{error}</p>}
                 </div>
                 <p id={norm_style.def_warning}><b>Внимание!</b><br />Никогда не публикуйте нигде свои логины и пароли и не называйте их никому, даже «администрации сайта».</p>
             </div>

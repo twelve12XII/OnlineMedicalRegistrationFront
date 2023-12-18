@@ -1,0 +1,50 @@
+.menu {
+    width: 20%;
+    background-color: #3f3f3f;
+    text-align: center;
+    height: auto;
+}
+
+.menu img {
+    height: 15vh;
+}
+
+.buttons_block {
+    min-height: 80vh;
+}
+
+.buttons_block button {
+    width: 80%;
+    min-width: 150px;
+    margin: 0;
+    margin-top: 50px;
+}
+
+.content::before {
+    content: '';
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: -1;
+    background-image: url("../../../public/background_2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+}
+
+.content {
+    width: 80%;
+    position: relative; /* Относительное позиционирование */
+}
+
+.info_container {
+    width: 20%;
+    background-color: #3f3f3f;
+    text-align: center;
+    height: auto;
+}
+
+.get_back_button {
+    margin: 0;
+    margin-top: 50px;
+    width: 80%;
+}

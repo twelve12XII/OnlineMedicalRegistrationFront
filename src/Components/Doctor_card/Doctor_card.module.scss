@@ -1,0 +1,13 @@
+.record{
+    width: 100%;
+    min-height: 80vh;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.record button{
+    margin: auto;
+    min-width: 180px;
+}

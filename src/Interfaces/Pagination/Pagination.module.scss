@@ -1,0 +1,18 @@
+.pagination_span_left {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.pagination_block button {
+    width: 5vw;
+    margin: 0;
+}
+
+.pagination_block {
+    text-align: center;
+    background-color: #3f3f3f;
+    padding: 1vw;
+}
