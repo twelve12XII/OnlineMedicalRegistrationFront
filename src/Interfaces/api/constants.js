@@ -28,7 +28,7 @@ export const postRequestEgor = async (url, object) => {
     // if(auth){
     //     auth = getAuthHeader();
     // }
-    return await fetch('https://f5dd-46-138-0-220.ngrok-free.app/Home/' + url, {
+    return await fetch('https://7db2-46-138-0-220.ngrok-free.app/Home/' + url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
